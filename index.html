@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Saumya Kumar | Cyber Guardian</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600;700&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- Matrix Rain Canvas -->
+<canvas id="matrix-canvas"></canvas>
+
+<!-- Scanlines overlay -->
+<div class="scanlines"></div>
+
+<!-- NAV -->
+<nav id="navbar">
+  <div class="nav-logo">
+    <span class="bracket">[</span>SK<span class="bracket">]</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#certs">Certs</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#publications">Research</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-status">
+    <span class="status-dot"></span>
+    <span class="status-text">SECURE</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="terminal-header">
+      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+      <span class="terminal-title">root@saumya:~$</span>
+    </div>
+    <div class="terminal-body">
+      <p class="cmd-line"><span class="prompt">$ </span><span class="typed-cmd" id="cmd1"></span></p>
+      <div class="output-block" id="output1" style="display:none">
+        <h1 class="glitch-name" data-text="SAUMYA KUMAR">SAUMYA KUMAR</h1>
+        <p class="hero-tagline"><span class="accent">&gt;&gt;</span> Cyber Guardian &nbsp;|&nbsp; Research Engineer @ IIT Kanpur</p>
+        <p class="hero-sub">CEH v12 &nbsp;·&nbsp; Security+ &nbsp;·&nbsp; ISO 27001</p>
+      </div>
+      <p class="cmd-line" id="cmd2-line" style="display:none"><span class="prompt">$ </span><span class="typed-cmd" id="cmd2"></span></p>
+      <div class="output-block" id="output2" style="display:none">
+        <p class="hero-desc">Defending digital infrastructure through GRC, VAPT, cloud security &amp; forensics. Building a safer digital world — one exploit at a time.</p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-primary">./view_projects</a>
+          <a href="#contact" class="btn-outline">./contact_me</a>
+          <a href="https://github.com/saumyakumar07" target="_blank" class="btn-ghost">GitHub</a>
+        </div>
+      </div>
+      <p class="cursor-line" id="cursor-line" style="display:none"><span class="prompt">$ </span><span class="blink-cursor">█</span></p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2>whoami</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>I'm <strong>Saumya Kumar</strong>, a cybersecurity professional and software developer based in Kanpur, India. Currently working as a <span class="highlight">Research Engineer at IIT Kanpur</span>, I specialize in protecting digital infrastructure and guiding organizations toward robust security postures.</p>
+      <p>My expertise spans <span class="highlight">Governance, Risk &amp; Compliance (GRC)</span>, Vulnerability Assessment &amp; Penetration Testing (VAPT), Digital Forensics, and Cloud Security. I bridge the gap between offensive security knowledge and defensive strategy.</p>
+      <p>As a published researcher with papers in <span class="highlight">IJIRT and IJSDR</span> on cloud security and cyber law, I bring both academic depth and hands-on technical skill to every engagement.</p>
+    </div>
+    <div class="about-terminal">
+      <div class="mini-terminal">
+        <div class="mini-term-header">
+          <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+          <span>profile.json</span>
+        </div>
+        <pre class="json-content"><span class="json-brace">{</span>
+  <span class="json-key">"name"</span>: <span class="json-str">"Saumya Kumar"</span>,
+  <span class="json-key">"role"</span>: <span class="json-str">"Research Engineer"</span>,
+  <span class="json-key">"org"</span>: <span class="json-str">"IIT Kanpur"</span>,
+  <span class="json-key">"location"</span>: <span class="json-str">"Kanpur, India"</span>,
+  <span class="json-key">"focus"</span>: [
+    <span class="json-str">"Cybersecurity"</span>,
+    <span class="json-str">"Cloud Security"</span>,
+    <span class="json-str">"GRC"</span>,
+    <span class="json-str">"VAPT"</span>
+  ],
+  <span class="json-key">"status"</span>: <span class="json-str">"Available for opportunities"</span>,
+  <span class="json-key">"threat_level"</span>: <span class="json-str">"Defender"</span>
+<span class="json-brace">}</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2>skill_matrix</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-category">
+      <h3 class="cat-title"><span class="icon">⚔</span> Offensive Security</h3>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">VAPT</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-item"><span class="skill-name">Phishing Simulation</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-item"><span class="skill-name">OSINT</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-item"><span class="skill-name">Digital Forensics</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3 class="cat-title"><span class="icon">🛡</span> Governance & Compliance</h3>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">ISO 27001</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-item"><span class="skill-name">NIST CSF</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-item"><span class="skill-name">CIS Controls</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+        <div class="skill-item"><span class="skill-name">IT Audit</span><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div><span class="skill-pct">78%</span></div>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3 class="cat-title"><span class="icon">☁</span> Cloud & Infrastructure</h3>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">AWS</span><div class="skill-bar"><div class="skill-fill" data-w="85"></div></div><span class="skill-pct">85%</span></div>
+        <div class="skill-item"><span class="skill-name">Linux</span><div class="skill-bar"><div class="skill-fill" data-w="88"></div></div><span class="skill-pct">88%</span></div>
+        <div class="skill-item"><span class="skill-name">Raspberry Pi / NAS</span><div class="skill-bar"><div class="skill-fill" data-w="75"></div></div><span class="skill-pct">75%</span></div>
+        <div class="skill-item"><span class="skill-name">OpenSearch / Kibana</span><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div><span class="skill-pct">78%</span></div>
+      </div>
+    </div>
+    <div class="skill-category">
+      <h3 class="cat-title"><span class="icon">&#60;/&#62;</span> Development</h3>
+      <div class="skill-items">
+        <div class="skill-item"><span class="skill-name">Python</span><div class="skill-bar"><div class="skill-fill" data-w="90"></div></div><span class="skill-pct">90%</span></div>
+        <div class="skill-item"><span class="skill-name">JavaScript</span><div class="skill-bar"><div class="skill-fill" data-w="80"></div></div><span class="skill-pct">80%</span></div>
+        <div class="skill-item"><span class="skill-name">Flask / Django</span><div class="skill-bar"><div class="skill-fill" data-w="78"></div></div><span class="skill-pct">78%</span></div>
+        <div class="skill-item"><span class="skill-name">Bash Scripting</span><div class="skill-bar"><div class="skill-fill" data-w="82"></div></div><span class="skill-pct">82%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certs">
+  <div class="section-header">
+    <span class="section-num">03</span>
+    <h2>certifications</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">⚡</div>
+      <div class="cert-badge">EC-Council</div>
+      <h3 class="cert-name">CEH v12</h3>
+      <p class="cert-full">Certified Ethical Hacker</p>
+      <p class="cert-desc">Mastery of offensive security techniques, footprinting, scanning, exploitation, and post-exploitation methodologies.</p>
+      <div class="cert-tags"><span>Ethical Hacking</span><span>Exploitation</span><span>Recon</span></div>
+    </div>
+    <div class="cert-card featured">
+      <div class="cert-icon">🔒</div>
+      <div class="cert-badge">CompTIA</div>
+      <h3 class="cert-name">Security+</h3>
+      <p class="cert-full">CompTIA Security+</p>
+      <p class="cert-desc">Industry-standard certification covering threats, vulnerabilities, architecture, implementation, operations, and compliance.</p>
+      <div class="cert-tags"><span>Network Security</span><span>Cryptography</span><span>Compliance</span></div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📋</div>
+      <div class="cert-badge">ISO</div>
+      <h3 class="cert-name">ISO 27001</h3>
+      <p class="cert-full">Information Security Management</p>
+      <p class="cert-desc">Certified in implementing and managing an information security management system aligned with international standards.</p>
+      <div class="cert-tags"><span>ISMS</span><span>GRC</span><span>Audit</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">04</span>
+    <h2>projects</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="proj-type offensive">SECURITY TOOL</span>
+        <div class="proj-links">
+          <a href="https://github.com/saumyakumar07" target="_blank" title="GitHub">⎋</a>
+        </div>
+      </div>
+      <h3 class="proj-title">Stega Secure</h3>
+      <p class="proj-desc">A steganography encryption tool that hides sensitive data within image files. Combines cryptographic techniques with image steganography for covert communication.</p>
+      <div class="proj-stack">
+        <span>Python</span><span>Cryptography</span><span>Steganography</span><span>Pillow</span>
+      </div>
+    </div>
+
+    <div class="project-card featured-proj">
+      <div class="project-top">
+        <span class="proj-type cloud">CLOUD / AWS</span>
+        <div class="proj-links">
+          <a href="https://github.com/saumyakumar07/Log-Analytics-Solution-AWS" target="_blank" title="GitHub">⎋</a>
+        </div>
+      </div>
+      <h3 class="proj-title">AWS Log Analytics Solution</h3>
+      <p class="proj-desc">Scalable cloud log analytics pipeline processing <strong>10M+ logs/day</strong>. Built on Kinesis Firehose, Apache Flink, and OpenSearch with real-time threat detection dashboards in Kibana.</p>
+      <div class="proj-stack">
+        <span>AWS</span><span>Kinesis</span><span>Apache Flink</span><span>OpenSearch</span><span>Kibana</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="proj-type compliance">GRC / AUDIT</span>
+        <div class="proj-links">
+          <a href="https://github.com/saumyakumar07" target="_blank" title="GitHub">⎋</a>
+        </div>
+      </div>
+      <h3 class="proj-title">AUditRite</h3>
+      <p class="proj-desc">Automated IT audit system streamlining the compliance audit process. Generates audit trails, risk assessments, and compliance reports aligned with ISO 27001 and NIST frameworks.</p>
+      <div class="proj-stack">
+        <span>Python</span><span>Django</span><span>ISO 27001</span><span>NIST</span>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <div class="project-top">
+        <span class="proj-type hardware">HARDWARE</span>
+        <div class="proj-links">
+          <a href="https://github.com/saumyakumar07/PiNAS" target="_blank" title="GitHub">⎋</a>
+        </div>
+      </div>
+      <h3 class="proj-title">PiNAS</h3>
+      <p class="proj-desc">Self-hosted Network Attached Storage built on Raspberry Pi with OpenMediaVault. Secure, private cloud storage solution with SSH access and data encryption.</p>
+      <div class="proj-stack">
+        <span>Raspberry Pi</span><span>OpenMediaVault</span><span>Linux</span><span>SSH</span>
+      </div>
+    </div>
+
+
+  </div>
+  <div class="projects-footer">
+    <a href="https://github.com/saumyakumar07" target="_blank" class="btn-outline">View All on GitHub &rarr;</a>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section id="publications">
+  <div class="section-header">
+    <span class="section-num">05</span>
+    <h2>research</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="pub-list">
+    <div class="pub-card">
+      <div class="pub-meta">
+        <span class="pub-journal">IJIRT</span>
+        <span class="pub-type">Peer-Reviewed</span>
+      </div>
+      <h3 class="pub-title">Research Paper on Cloud Security</h3>
+      <p class="pub-desc">Published in the International Journal of Innovative Research in Technology. Explores emerging threats in cloud computing environments and proposes a layered defense framework for enterprise cloud deployments.</p>
+      <div class="pub-tags"><span>Cloud Security</span><span>AWS</span><span>Threat Modeling</span></div>
+      <a href="https://ijirt.org/article?manuscript=154508" target="_blank" class="pub-read-link">Read Paper &rarr;</a>
+    </div>
+    <div class="pub-card">
+      <div class="pub-meta">
+        <span class="pub-journal">IJSDR</span>
+        <span class="pub-type">Peer-Reviewed</span>
+      </div>
+      <h3 class="pub-title">Research Paper on Cyber Law</h3>
+      <p class="pub-desc">Published in the International Journal of Scientific Development and Research. Analyzes the intersection of cybersecurity practices and legal frameworks, covering jurisdiction challenges in cross-border cybercrime.</p>
+      <div class="pub-tags"><span>Cyber Law</span><span>Compliance</span><span>Jurisdiction</span></div>
+      <a href="https://www.ijsdr.org/viewpaperforall.php?paper=IJSDR2304266" target="_blank" class="pub-read-link">Read Paper &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-header">
+    <span class="section-num">06</span>
+    <h2>contact</h2>
+    <div class="section-line"></div>
+  </div>
+  <div class="contact-centered">
+    <p class="contact-intro">Open to cybersecurity roles, consulting engagements, and research collaborations.<br/>The best way to reach me is directly via email.</p>
+    <a href="mailto:saumyakumar8935@gmail.com" class="contact-email-cta">
+      <span class="cta-icon">✉</span>
+      <span class="cta-text">saumyakumar8935@gmail.com</span>
+    </a>
+    <p class="contact-or">or connect on</p>
+    <div class="contact-links">
+      <a href="https://github.com/saumyakumar07" target="_blank" class="contact-link">
+        <span class="cl-icon">⌥</span>
+        <div>
+          <span class="cl-label">GitHub</span>
+          <span class="cl-val">@saumyakumar07</span>
+        </div>
+      </a>
+      <a href="https://www.linkedin.com/in/saumyakumar4321/" target="_blank" class="contact-link">
+        <span class="cl-icon">in</span>
+        <div>
+          <span class="cl-label">LinkedIn</span>
+          <span class="cl-val">saumyakumar4321</span>
+        </div>
+      </a>
+      <a href="https://tryhackme.com" target="_blank" class="contact-link">
+        <span class="cl-icon">⚑</span>
+        <div>
+          <span class="cl-label">TryHackMe</span>
+          <span class="cl-val">View Profile</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <p class="footer-logo"><span class="bracket">[</span>SK<span class="bracket">]</span> Saumya Kumar</p>
+    <p class="footer-copy">© 2026 &nbsp;|&nbsp; Built with <span class="accent">&#60;/&#62;</span> &amp; ☕ &nbsp;|&nbsp; Securing the web, one line at a time</p>
+    <p class="footer-threat">System Status: <span class="status-dot"></span> <span class="accent">ALL SYSTEMS SECURE</span></p>
+  </div>
+</footer>
+
+<script src="app.js"></script>
+</body>
+</html>
