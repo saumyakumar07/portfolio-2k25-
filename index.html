@@ -35,30 +35,26 @@
   </div>
 </nav>
 
-<!-- HERO -->
+<!-- HERO / INTERACTIVE TERMINAL -->
 <section id="hero">
-  <div class="hero-content">
-    <div class="terminal-header">
-      <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
-      <span class="terminal-title">root@saumya:~$</span>
+  <div class="iterm-window" id="itermWindow">
+    <div class="iterm-titlebar">
+      <div class="iterm-dots">
+        <span class="dot red"></span>
+        <span class="dot yellow"></span>
+        <span class="dot green"></span>
+      </div>
+      <span class="iterm-title">saumya@portfolio: ~</span>
+      <span class="iterm-hint">[ type <span class="t-green">help</span> to see all commands ]</span>
     </div>
-    <div class="terminal-body">
-      <p class="cmd-line"><span class="prompt">$ </span><span class="typed-cmd" id="cmd1"></span></p>
-      <div class="output-block" id="output1" style="display:none">
-        <h1 class="glitch-name" data-text="SAUMYA KUMAR">SAUMYA KUMAR</h1>
-        <p class="hero-tagline"><span class="accent">&gt;&gt;</span> Cyber Guardian &nbsp;|&nbsp; Research Engineer @ IIT Kanpur</p>
-        <p class="hero-sub">CEH v12 &nbsp;·&nbsp; Security+ &nbsp;·&nbsp; ISO 27001</p>
+    <div class="iterm-body" id="itermBody">
+      <div id="termOutput"></div>
+      <div class="term-input-row" id="termInputRow">
+        <span class="term-prompt">root@saumya:~$&nbsp;</span>
+        <input type="text" id="termInput" class="term-input"
+               autocomplete="off" spellcheck="false" autocorrect="off"
+               autocapitalize="off" autofocus />
       </div>
-      <p class="cmd-line" id="cmd2-line" style="display:none"><span class="prompt">$ </span><span class="typed-cmd" id="cmd2"></span></p>
-      <div class="output-block" id="output2" style="display:none">
-        <p class="hero-desc">Defending digital infrastructure through GRC, VAPT, cloud security &amp; forensics. Building a safer digital world — one exploit at a time.</p>
-        <div class="hero-btns">
-          <a href="#projects" class="btn-primary">./view_projects</a>
-          <a href="#contact" class="btn-outline">./contact_me</a>
-          <a href="https://github.com/saumyakumar07" target="_blank" class="btn-ghost">GitHub</a>
-        </div>
-      </div>
-      <p class="cursor-line" id="cursor-line" style="display:none"><span class="prompt">$ </span><span class="blink-cursor">█</span></p>
     </div>
   </div>
 </section>
