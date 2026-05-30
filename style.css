@@ -220,7 +220,7 @@ section {
   z-index: 2;
 }
 
-.hero-content { max-width: 680px; }
+.hero-content { max-width: 640px; }
 
 .hero-badge {
   display: inline-flex;
