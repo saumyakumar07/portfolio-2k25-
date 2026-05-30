@@ -1,29 +1,61 @@
-/* ===== MATRIX RAIN ===== */
+/* ===== NETWORK PARTICLE BACKGROUND ===== */
 (function () {
   const canvas = document.getElementById('matrix-canvas');
-  const ctx = canvas.getContext('2d');
-  let cols, drops;
+  const ctx    = canvas.getContext('2d');
+  const NODES  = 55;
+  const CONN_DIST = 160;
+  let nodes = [];
+
   function resize() {
-    canvas.width = window.innerWidth;
+    canvas.width  = window.innerWidth;
     canvas.height = window.innerHeight;
-    cols = Math.floor(canvas.width / 20);
-    drops = Array(cols).fill(1);
+  }
+  function initNodes() {
+    nodes = Array.from({ length: NODES }, () => ({
+      x:  Math.random() * canvas.width,
+      y:  Math.random() * canvas.height,
+      vx: (Math.random() - 0.5) * 0.35,
+      vy: (Math.random() - 0.5) * 0.35,
+      r:  Math.random() * 1.5 + 1,
+    }));
   }
   resize();
-  window.addEventListener('resize', resize);
-  const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789@#$%^&*()!<>/\\|{}[]';
+  initNodes();
+  window.addEventListener('resize', () => { resize(); initNodes(); });
+
   function draw() {
-    ctx.fillStyle = 'rgba(4,13,8,0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-    ctx.fillStyle = '#00ff41';
-    ctx.font = '14px JetBrains Mono, monospace';
-    for (let i = 0; i < drops.length; i++) {
-      ctx.fillText(chars[Math.floor(Math.random() * chars.length)], i * 20, drops[i] * 20);
-      if (drops[i] * 20 > canvas.height && Math.random() > 0.975) drops[i] = 0;
-      drops[i]++;
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      a.x += a.vx;
+      a.y += a.vy;
+      if (a.x < 0 || a.x > canvas.width)  a.vx *= -1;
+      if (a.y < 0 || a.y > canvas.height) a.vy *= -1;
+
+      /* node dot */
+      ctx.beginPath();
+      ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+      ctx.fillStyle = 'rgba(64,128,240,0.55)';
+      ctx.fill();
+
+      /* connections */
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b    = nodes[j];
+        const dist = Math.hypot(a.x - b.x, a.y - b.y);
+        if (dist < CONN_DIST) {
+          const alpha = (1 - dist / CONN_DIST) * 0.18;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = `rgba(64,128,240,${alpha})`;
+          ctx.lineWidth   = 0.8;
+          ctx.stroke();
+        }
+      }
     }
+    requestAnimationFrame(draw);
   }
-  setInterval(draw, 60);
+  draw();
 })();
 
 /* ===== NAVBAR SCROLL ===== */
@@ -554,20 +586,48 @@ if (hero) hero.classList.add('visible');
     }
   });
 
-  /* Focus input on any click inside terminal */
-  document.getElementById('itermWindow').addEventListener('click', () => input.focus());
+  /* Focus input on click anywhere in panel */
+  document.getElementById('terminalPanel').addEventListener('click', (e) => {
+    if (!window.getSelection().toString()) input.focus();
+  });
 
-  /* ── Boot sequence ───────────────────────── */
+  /* ── Boot sequence (runs once on first open) ── */
+  let booted = false;
   function boot() {
+    if (booted) return;
+    booted = true;
     cmdBanner();
     scrollBottom();
-    setTimeout(() => input.focus(), 300);
+    setTimeout(() => input.focus(), 100);
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', boot);
-  } else {
+  /* ── Terminal panel toggle ─────────────────── */
+  const panel      = document.getElementById('terminalPanel');
+  const openBtns   = [document.getElementById('openTermBtn'), document.getElementById('navTermBtn')];
+  const closeBtn   = document.getElementById('closeTermBtn');
+  const navBtn     = document.getElementById('navTermBtn');
+
+  function openTerminal() {
+    panel.classList.add('open');
+    if (navBtn) navBtn.classList.add('active');
     boot();
+    setTimeout(() => input.focus(), 350);
   }
+
+  function closeTerminal() {
+    panel.classList.remove('open');
+    if (navBtn) navBtn.classList.remove('active');
+  }
+
+  openBtns.forEach(btn => btn && btn.addEventListener('click', () => {
+    panel.classList.contains('open') ? closeTerminal() : openTerminal();
+  }));
+
+  closeBtn && closeBtn.addEventListener('click', closeTerminal);
+
+  /* Close with Escape key */
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && panel.classList.contains('open')) closeTerminal();
+  });
 
 })();

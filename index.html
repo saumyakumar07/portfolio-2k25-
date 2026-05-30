@@ -13,8 +13,6 @@
 <!-- Matrix Rain Canvas -->
 <canvas id="matrix-canvas"></canvas>
 
-<!-- Scanlines overlay -->
-<div class="scanlines"></div>
 
 <!-- NAV -->
 <nav id="navbar">
@@ -29,35 +27,60 @@
     <li><a href="#publications">Research</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
-  <div class="nav-status">
-    <span class="status-dot"></span>
-    <span class="status-text">SECURE</span>
+  <div class="nav-right">
+    <button class="nav-terminal-btn" id="navTermBtn" title="Open Terminal">
+      <span class="term-btn-icon">&gt;_</span> Terminal
+    </button>
+    <div class="nav-status">
+      <span class="status-dot"></span>
+      <span class="status-text">SECURE</span>
+    </div>
   </div>
 </nav>
 
-<!-- HERO / INTERACTIVE TERMINAL -->
+<!-- HERO -->
 <section id="hero">
-  <div class="iterm-window" id="itermWindow">
-    <div class="iterm-titlebar">
-      <div class="iterm-dots">
-        <span class="dot red"></span>
-        <span class="dot yellow"></span>
-        <span class="dot green"></span>
-      </div>
-      <span class="iterm-title">saumya@portfolio: ~</span>
-      <span class="iterm-hint">[ type <span class="t-green">help</span> to see all commands ]</span>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <span class="badge-dot"></span>
+      Research Engineer &nbsp;·&nbsp; IIT Kanpur
     </div>
-    <div class="iterm-body" id="itermBody">
-      <div id="termOutput"></div>
-      <div class="term-input-row" id="termInputRow">
-        <span class="term-prompt">root@saumya:~$&nbsp;</span>
-        <input type="text" id="termInput" class="term-input"
-               autocomplete="off" spellcheck="false" autocorrect="off"
-               autocapitalize="off" autofocus />
-      </div>
+    <h1 class="hero-name" data-text="SAUMYA KUMAR">SAUMYA KUMAR</h1>
+    <p class="hero-title">Cyber Guardian &nbsp;<span class="title-sep">|</span>&nbsp; Cybersecurity Professional</p>
+    <p class="hero-desc">Defending digital infrastructure through GRC, VAPT, cloud security &amp; forensics.<br/>Building a safer digital world — one layer at a time.</p>
+    <div class="hero-certs">
+      <span>CEH v12</span><span>Security+</span><span>ISO 27001</span>
+    </div>
+    <div class="hero-btns">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact"  class="btn-outline">Contact Me</a>
+      <button class="btn-terminal-hero" id="openTermBtn">&gt;_ Open Terminal</button>
     </div>
   </div>
 </section>
+
+<!-- TERMINAL PANEL (hidden by default) -->
+<div class="terminal-panel" id="terminalPanel">
+  <div class="term-panel-bar" id="termPanelBar">
+    <div class="term-panel-left">
+      <span class="dot red"></span>
+      <span class="dot yellow"></span>
+      <span class="dot green"></span>
+      <span class="term-panel-title">root@saumya: ~/portfolio</span>
+    </div>
+    <div class="term-panel-hint">type <span class="t-blue">help</span> for commands</div>
+    <button class="term-close-btn" id="closeTermBtn" title="Close Terminal">✕</button>
+  </div>
+  <div class="iterm-body" id="itermBody">
+    <div id="termOutput"></div>
+    <div class="term-input-row" id="termInputRow">
+      <span class="term-prompt">root@saumya:~$&nbsp;</span>
+      <input type="text" id="termInput" class="term-input"
+             autocomplete="off" spellcheck="false" autocorrect="off"
+             autocapitalize="off" />
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
 <section id="about">
